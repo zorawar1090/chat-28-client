@@ -8,7 +8,7 @@ class MessageForm extends React.Component {
   onSubmit = async (event) => {
     event.preventDefault()
 
-    await request.post('http://localhost:5000/message')
+    await request.post('https://safe-ocean-30227.herokuapp.com/message')
       .send({ 
         message: this.state.message,
         user: this.props.user 

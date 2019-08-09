@@ -8,7 +8,7 @@ import UserForm from './components/UserForm'
 class App extends React.Component {
   state = { message: '' }
 
-  source = new EventSource('http://localhost:5000/stream')
+  source = new EventSource('https://safe-ocean-30227.herokuapp.com/stream')
 
   componentDidMount() {
     this.source.onmessage = (event) => {
