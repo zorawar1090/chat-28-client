@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
-import messages from './messages'
+import channels from './channels'
 import user from './user'
 
 export default combineReducers({
-  messages, user
+  channels, user
 })

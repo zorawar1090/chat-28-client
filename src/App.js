@@ -1,8 +1,9 @@
 import React from 'react';
-import { allMessages } from './actions'
+import { allChannels } from './actions'
 import { connect } from 'react-redux'
 import MessageForm from './components/MessageForm'
 import UserForm from './components/UserForm'
+import ChannelForm from './components/ChannelForm'
 
 
 class App extends React.Component {
@@ -12,36 +13,37 @@ class App extends React.Component {
 
   componentDidMount() {
     this.source.onmessage = (event) => {
-      const messages = JSON.parse(event.data)
-      this.props.allMessages(messages)
+      const channels = JSON.parse(event.data)
+      this.props.allMessages(channels)
     }
   }
 
   
 
   render() {
-    const messages = this
+    const channels = this
       .props
-      .messages
-      .map((message, index) => <p key={index}>{message.user}: {message.text}</p>)
+      .channels
+      .map((channel, index) => <p key={index}>{channel.name}</p>)
 
     
 
     return <main>
+      <ChannelForm user={this.props.user} />
       <UserForm user={this.props.user}/>
       <MessageForm user={this.props.user} />
-      {messages}
+      {channels}
     </main>
   }
 }
 
 const mapDispatchToProps = {
-  allMessages
+  allChannels
 }
 
 const mapStateToProps = state => {
   return {
-    messages: state.messages,
+    channels: state.channels,
     user: state.user
   }
 }
