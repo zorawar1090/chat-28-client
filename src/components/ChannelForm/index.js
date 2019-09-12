@@ -1,6 +1,7 @@
 import React from 'react'
 import request from 'superagent'
 import View from './view'
+import { url } from '../../constants'
 
 export default class ChannelForm extends React.Component {
   state = { name: '' }
@@ -8,18 +9,18 @@ export default class ChannelForm extends React.Component {
   onSubmit = async (event) => {
     event.preventDefault()
 
-    await request.post('https://safe-ocean-30227.herokuapp.com/channel')
+    await request.post(`${url}/channel`)
       .send({ 
         name: this.state.name
       })
 
-    this.setState({ message: '' })
+    this.setState({ name: '' })
   }
 
   onChange = event => {
     const { value } = event.target
 
-    this.setState({ message: value })
+    this.setState({ name: value })
   }
 
   render() {
