@@ -1,4 +1,4 @@
-# chat-28-server
+# chat-28-client
 Individual project - Chat app client built with react and redux.
 
 ## What can it do?
