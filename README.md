@@ -1,5 +1,5 @@
 # chat-28-server
-Individual project - Chat app server built with node, express, sequelize, server-sent-events and postgreSQL
+Individual project - Chat app client built with react and redux.
 
 ## What can it do?
 -   The app initially displays a channel list, a channel form to add a channel and an input field to submit the username. 
